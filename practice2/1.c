@@ -11,7 +11,7 @@ typedef struct {
 int main() {
     int n;
     scanf("%d", &n);
-    Student students[n];
+    Student* students = malloc(sizeof(Student) * n); // <- Только так с динамическими массивами
     for (int i = 0; i < n; ++i) {
         scanf("%s%d%f", students[i].name, &students[i].age, &students[i].average);
     }
