@@ -15,7 +15,7 @@ typedef struct {
 int main() {
     int n;
     scanf("%d", &n);
-    Event events[n];
+    Event* events = (Event*) malloc(sizeof(Event) * n);
     for (int i = 0; i < n; ++i) {
         scanf("%s%d%d%d%s", events[i].name, &events[i].date.day, &events[i].date.month,
          &events[i].date.year, events[i].description);
@@ -24,4 +24,5 @@ int main() {
         printf("Event: %s\nDate: %d/%d/%d\nDescription: %s\n", events[i].name, events[i].date.day,
          events[i].date.month, events[i].date.year, events[i].description);
     }
+    free(events);
 }

@@ -12,8 +12,8 @@ int main() {
     scanf("%d", &n);
     char mark[64];
     int num;
-    Grade grades[n];
-    char types[n];
+    Grade* grades = (Grade*) malloc(sizeof(Grade) * n);
+    char* types = (char*) malloc(sizeof(char) * n);
     
     for (int i = 0; i < n; ++i) {
         scanf("%s", mark);
@@ -33,4 +33,6 @@ int main() {
         else 
             printf("Grade: %d\n", grades[i].num);
     }
+    free(grades);
+    free(types);
 }

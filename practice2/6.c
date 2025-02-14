@@ -26,7 +26,7 @@ const char* type_to_str(enum Type type) {
 int main() {
     int n;
     scanf("%d", &n);
-    Vehicle vehicles[n];
+    Vehicle* vehicles = (Vehicle*) malloc(sizeof(Vehicle) * n);
     char cur_type[50];
     for (int i = 0; i < n; ++i) {
         scanf("%s%s%d%s", vehicles[i].mark, vehicles[i].model, &vehicles[i].year, cur_type);
@@ -44,4 +44,5 @@ int main() {
     for (int i = 0; i < n; ++i) {
         printf("Vehicle: %s %s\nYear: %d\nEngine Type: %s\n", vehicles[i].mark, vehicles[i].model, vehicles[i].year, type_to_str(vehicles[i].type));
     }
+    free(vehicles);
 }

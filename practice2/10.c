@@ -12,11 +12,12 @@ typedef struct {
 int main() {
     int n;
     scanf("%d", &n);
-    Course courses[n];
+    Course* courses = (Course*) malloc(sizeof(Course) * n);
     for (int i = 0; i < n; ++i) {
         scanf("%s%d%s", courses[i].name, &courses[i].credits, courses[i].teacher);
     }
     for (int i = 0; i < n; ++i) {
         printf("Course: %s\nCredits: %d\nProfessor: %s\n", courses[i].name, courses[i].credits, courses[i].teacher);
     }
+    free(courses);
 }
