@@ -1,0 +1,16 @@
+file1.o
+0000000000000000 D global_var
+                 U printf
+0000000000000000 T print_from_file1
+0000000000000004 d static_var
+file2.o
+0000000000000000 D global_var
+                 U printf
+0000000000000000 T print_from_file2
+                 U static_var
+main.o
+                 U global_var
+0000000000000000 T main
+                 U printf
+                 U print_from_file1
+                 U print_from_file2
