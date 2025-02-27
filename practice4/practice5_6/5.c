@@ -6,13 +6,16 @@
 int main() {
     char command[1024];
     char* memory = NULL;
-    unsigned long n;
+    unsigned long n = 0;
     
+    puts("Welcome to interpreter. Available commands:\nfree\nprint\nexit\nalloc <size>\nwrite <text>");
     while (1) {
+        printf("Enter command: ");
         fgets(command, 1024, stdin);
         command[strcspn(command, "\n")] = '\0';
         if (!strcmp(command, "free")) {
             free(memory);
+            memory = NULL;
             n = 0;
         }
         else if (!strcmp(command, "print")) {
@@ -47,6 +50,7 @@ int main() {
                 unsigned long inp_size = strlen(space + 1);
                 if (inp_size > n) {
                     printf("Wrong input: allocated %lu, but required %lu\n", n, inp_size);
+                    return -1;
                 }
                 strcpy(memory, space + 1);
             }
