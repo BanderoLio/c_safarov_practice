@@ -9,22 +9,18 @@ typedef int (*comp_t) (const char*, const char*);
 
 void qsort_char_arr(const char** arr, int n, comp_t comparator, int l, int r) {
     if (r <= l) return;
-    // printf("call: l, r: %d, %d\n", l, r);
     int pivot = l, i = l + 1, j = r;
     while (i <= j) {
         for (;i != r; ++i) {
             if (comparator(arr[i], arr[pivot])) {
-                // printf("i, piv: %d %s %s\n", comparator(arr[pivot], arr[i]), arr[i], arr[pivot]);
                 break;
             }
         }
         for (;j != l; --j) {
             if (!(comparator(arr[j], arr[pivot]))) {
-                // printf("j, piv: %d %s, %s\n", comparator(arr[pivot], arr[j]), arr[j],arr[pivot]);
                 break;
             }
         }
-        // printf("i, j: %d, %d\n", i, j);
         if (i >= j) {
             break;
         }
