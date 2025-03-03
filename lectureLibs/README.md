@@ -3,7 +3,8 @@
 Поскольку заголовочные .h файлы находятся не в стандартной директории (/usr/lib/include) и не директории с исходными файлами, для явного указания где их искать был использован флаг -I:
 
 Static:
-``` mastard@GENSHIN-PC:~/c_safarov_practice/lectureLibs$ clang main_static.c -L./lib -lpower_for -I ./lib -o main_static.out
+```
+mastard@GENSHIN-PC:~/c_safarov_practice/lectureLibs$ clang main_static.c -L./lib -lpower_for -I ./lib -o main_static.out
 mastard@GENSHIN-PC:~/c_safarov_practice/lectureLibs$ ./main_static.out 
 2^10 using static library: 1024 
 ```
